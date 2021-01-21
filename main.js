@@ -41,11 +41,9 @@ Apify.main(async () => {
       .not('.navigation-not-searchable')
       .find('a[href]')
       .map((i, el) => el.attribs.href)
-      // .map((i, el) => el.pathname)
       .filter((i, path) => path.startsWith('/wiki/'))
       .not((i, path) => path.includes(':'))
       .filter((i, path) => path !== reqPathname)
-      // .first()
       .get()
       .shift()
 
